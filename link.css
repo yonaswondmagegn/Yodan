@@ -9,8 +9,10 @@
     font-family: Roboto-Italic;
     src: url('./Roboto-Italic.ttf');
 }
-
-
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
 * {
     margin: 0;
     padding: 0;
