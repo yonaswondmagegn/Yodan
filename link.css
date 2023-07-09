@@ -36,6 +36,7 @@ nav {
     padding: 1rem .2rem 0 .2rem;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     background-color: #E4ADC4;
 
     /* padding: 1rem; */
