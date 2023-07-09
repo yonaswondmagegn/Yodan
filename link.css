@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Miltonian&display=swap');
 
 @font-face {
@@ -9,14 +10,14 @@
     font-family: Roboto-Italic;
     src: url('./Roboto-Italic.ttf');
 }
-body{
-    width: 100%;
-    overflow-x: hidden;
-}
 * {
     margin: 0;
     padding: 0;
+    
+}
 
+body{
+    overflow-x: hidden;
 }
 
 .logo__text {
@@ -33,7 +34,7 @@ body{
 
 nav {
     display: flex;
-    padding: 1rem .2rem 0 .2rem;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -53,9 +54,13 @@ nav {
     border-radius: 15px;
     flex-shrink: 0;
 }
+.main{
+    width: 100%;
+}
 
 .todays__selection_products {
     display: flex;
+    width: 100%;
     gap: 1rem;
     padding: .5rem;
     overflow-x: auto;
@@ -91,7 +96,6 @@ nav {
     border-radius: 20px;
     background: rgba(217, 217, 217, 0.60);
     width: 70%;
-    margin-left: 2rem;
     display: flex;
     flex-direction: column;
     font-family: Roboto-Italic;
