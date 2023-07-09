@@ -39,6 +39,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     top: 0;
+    z-index: 2;
     width: 100%;
     background-color: #E4ADC4;
     padding: .5rem 1rem 0 .5rem;
