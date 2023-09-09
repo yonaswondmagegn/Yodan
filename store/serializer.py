@@ -13,14 +13,22 @@ class ImageSerializer(serializers.ModelSerializer):
         model = Image
         fields = '__all__'
 
+
 class ProductSerializer(serializers.ModelSerializer):
     # images = ImageSerializer(many = True)
     class Meta:
         model = Product 
         fields = '__all__'
 
+class ProductSerializerForCart(serializers.ModelSerializer):
+    images = ImageSerializer(many = True)
+    # images = ImageSerializer(many = True)
+    class Meta:
+        model = Product 
+        fields = '__all__'
+
 class CartProductSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
+    product = ProductSerializerForCart()
     class Meta:
         model = CartProduct
         fields = '__all__'

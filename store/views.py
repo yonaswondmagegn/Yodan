@@ -13,7 +13,8 @@ from .serializer import (
     ImageSerializer,
     CartProductSerializer,
     BoostSerializer,
-    CartProductFullSerializer)
+    CartProductFullSerializer,
+)
 from .filter import ChategoryFilter
 
 
@@ -71,10 +72,11 @@ class CartProductViewSet(ModelViewSet):
         
 
         return cart.products
+
 class CartProductFullViewSet(ModelViewSet):
     queryset = CartProduct.objects.all()
     serializer_class = CartProductFullSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class CartViewSet(ModelViewSet):
     queryset = Cart.objects.all()
@@ -82,7 +84,7 @@ class CartViewSet(ModelViewSet):
     filterset_fields = ['condition','customer','ordercondition']
     order_fields = ['id','date']
     serializer_class = CartSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 
 class BoostViewSet(ModelViewSet):
