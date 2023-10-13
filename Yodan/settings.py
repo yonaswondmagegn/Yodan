@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-dd*0nx$ki&-rhpebaif5g$au@byzp-$sxa)1*=3(w7!xqrm$5h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'Yodan.wsgi.application'
 CORS_ALLOWED_ORIGINS = [
     'http://192.168.189.14:5173',
     'http://localhost:5173',
+    'http://10.2.16.163:5173'
 ]
 
 REST_FRAMEWORK = {
@@ -115,13 +116,9 @@ DJOSER = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'Yodandb',
-    'USER': 'root',
-    'PASSWORD': 'yonasmysql@1996',
-    'HOST':'localhost',
-    'PORT':'3306',
+    'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

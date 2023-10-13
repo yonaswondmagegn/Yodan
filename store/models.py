@@ -51,7 +51,8 @@ class CartProduct(models.Model):
 class Cart(models.Model):
     condition = (('ND',"NOTDELIVERED"),
                  ('D',"DELIVERED"),
-                 ('O',"ONPROGRESS"))
+                 ('O',"ONPROGRESS"),
+                 ('C',"CANCLLED"))
     
     orderconditionchoices  = (('O','ORDERED'),
                        ('NO','NOT-ORDERED'))
