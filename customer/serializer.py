@@ -8,7 +8,7 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id','username','phonenumber']
+        fields = ['id','username','phonenumber',"is_staff"]
 
 class CustomerSerializer(serializers.ModelSerializer):
     user = UserSerializer()
