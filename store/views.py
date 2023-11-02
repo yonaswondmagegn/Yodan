@@ -14,6 +14,7 @@ from .serializer import (
     CartProductSerializer,
     BoostSerializer,
     CartProductFullSerializer,
+    BoostPostSerializer
 )
 from .filter import ChategoryFilter
 
@@ -90,6 +91,15 @@ class CartViewSet(ModelViewSet):
 class BoostViewSet(ModelViewSet):
     queryset = BoostedProduct.objects.all()
     serializer_class = BoostSerializer
+    pagination_class = ProductPagination
+    filter_backends = [DjangoFilterBackend,OrderingFilter]
+    filterset_fields = ['active']
+    order_fields = ['date']
+    permission_classes = [isAdminOrReadOnly]
+
+class BoostPostViewSet(ModelViewSet):
+    queryset = BoostedProduct.objects.all()
+    serializer_class = BoostPostSerializer
     pagination_class = ProductPagination
     filter_backends = [DjangoFilterBackend,OrderingFilter]
     filterset_fields = ['active']

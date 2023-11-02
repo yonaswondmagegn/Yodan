@@ -56,3 +56,8 @@ class BoostSerializer(serializers.ModelSerializer):
     class Meta:
         model = BoostedProduct
         fields = "__all__"
+
+class BoostPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BoostedProduct
+        fields = "__all__"

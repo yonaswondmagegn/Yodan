@@ -8,7 +8,9 @@ from .views import (
     ImageNestedViewSet,
     BoostViewSet,
     CartProductViewSet,
-    CartProductFullViewSet)
+    CartProductFullViewSet,
+    BoostPostViewSet
+    )
 
 route = routers.DefaultRouter()
 route.register('product',ProductViewSet)
@@ -16,6 +18,7 @@ route.register('chategory',ChategoryViewSet)
 route.register('cart',CartViewSet)
 route.register('image',ImageViewSet)
 route.register('boost',BoostViewSet)
+route.register('boostpost',BoostPostViewSet)
 route.register('cartproducts',CartProductFullViewSet)
  
 nested_route = routers.NestedDefaultRouter(route,'product',lookup = 'product')
