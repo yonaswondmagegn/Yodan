@@ -7,7 +7,6 @@ class StoreConfig(AppConfig):
 
     def ready(self):
         import store.signals
-        from django.core import management
-        management.call_command('a')
+      
 
 
