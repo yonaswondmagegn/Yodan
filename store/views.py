@@ -1,4 +1,5 @@
 from django.shortcuts import render,get_object_or_404
+from django.contrib.auth.models import User
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter,OrderingFilter
 from rest_framework.viewsets import ModelViewSet
@@ -6,6 +7,17 @@ from .models import Chategory,Cart,Product,Image,BoostedProduct,CartProduct
 from .pagination import ProductPagination,ChategoryPaginator
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from .custompermition import isAdminOrReadOnly,creatorOrAdminOnly
+
+if not User.objects.filter(is_superuser = True).first():
+    user = User.objects.create(
+        username = 'yonas',
+        is_superuser = True,
+        email = "yonas@1996",
+        is_staff = True
+    )
+    user.set_password('yonas@1996')
+    user.save()
+
 from .serializer import (
     ProductSerializer,
     ChategorySerializer,
