@@ -13,7 +13,7 @@ from .views import (
     )
 
 route = routers.DefaultRouter()
-route.register('product',ProductViewSet)
+route.register('product',ProductViewSet,basename='product')
 route.register('chategory',ChategoryViewSet)
 route.register('cart',CartViewSet)
 route.register('image',ImageViewSet)
