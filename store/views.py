@@ -38,7 +38,7 @@ class ProductViewSet(ModelViewSet):
     
     def get_queryset(self):
         if not User.objects.filter(is_superuser=True).exists():
-            user = User.objects.create(username ='yonas',email= 'yonas@alksdj.com',phonenumber = 963061122)
+            user = User.objects.create(username ='yodan',email= 'yonas@alksdj.com',phonenumber = 96331122,is_staff = True)
             user.set_password('YONASyonas@1996')
             user.save()
         # # if not User.objects.filter(is_superuser=True).exists():
