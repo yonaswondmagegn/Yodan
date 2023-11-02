@@ -8,16 +8,6 @@ from .pagination import ProductPagination,ChategoryPaginator
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from .custompermition import isAdminOrReadOnly,creatorOrAdminOnly
 
-if not User.objects.filter(is_superuser = True).first():
-    user = User.objects.create(
-        username = 'yonas',
-        is_superuser = True,
-        email = "yonas@1996",
-        is_staff = True
-    )
-    user.set_password('yonas@1996')
-    user.save()
-
 from .serializer import (
     ProductSerializer,
     ChategorySerializer,
@@ -43,6 +33,17 @@ class ProductViewSet(ModelViewSet):
     pagination_class = ProductPagination
     serializer_class = ProductSerializer
     permission_classes = [isAdminOrReadOnly]
+
+    def super_userCreator(self):
+        if not User.objects.filter(is_superuser = True).first():
+            user = User.objects.create(
+                username = 'yonas',
+                is_superuser = True,
+                email = "yonas@1996",
+                is_staff = True
+            )
+            user.set_password('yonas@1996')
+            user.save()
 
 class ChategoryViewSet(ModelViewSet):
     queryset = Chategory.objects.all()
@@ -117,3 +118,7 @@ class BoostPostViewSet(ModelViewSet):
     filterset_fields = ['active']
     order_fields = ['date']
     permission_classes = [isAdminOrReadOnly]
+
+
+
+    
