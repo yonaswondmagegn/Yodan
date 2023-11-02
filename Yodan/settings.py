@@ -14,8 +14,8 @@ from pathlib import Path
 import os
 from datetime import timedelta
 # settings.py
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 
 from store.custompermition import isAdminOrReadOnly
