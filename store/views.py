@@ -33,18 +33,7 @@ class ProductViewSet(ModelViewSet):
     pagination_class = ProductPagination
     serializer_class = ProductSerializer
     permission_classes = [isAdminOrReadOnly]
-    
-    # def get_queryset(self):
-    #     if not User.objects.filter(is_superuser=True).exists():
-    #         user = User.objects.create(
-    #             username = 'yonas',
-    #             is_superuser = True,
-    #             email = "yonas@1996",
-    #             is_staff = True
-    #         )
-    #         user.set_password('yonas@1996')
-    #         user.save()
-    #     return Product.objects.all()
+  
 
 
 class ChategoryViewSet(ModelViewSet):
