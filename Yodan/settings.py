@@ -135,6 +135,25 @@ DATABASES = {
         'PORT': os.environ.get("DB_PORT"),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('DATABASE_URL'),
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         },
+# #     }
+# # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'yodan',
+#         'USER': 'yonas',
+#         'PASSWORD': 'ndRvyuL94mTm4jLlWDhkbQ8bjlLV8nBQ',
+#         'HOST': 'dpg-cl1q6kal7jac73euiq70-a.oregon-postgres.render.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
