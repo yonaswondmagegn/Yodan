@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.models import User
+from django.conf import settings
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter,OrderingFilter
 from rest_framework.viewsets import ModelViewSet
@@ -7,6 +8,7 @@ from .models import Chategory,Cart,Product,Image,BoostedProduct,CartProduct
 from .pagination import ProductPagination,ChategoryPaginator
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from .custompermition import isAdminOrReadOnly,creatorOrAdminOnly
+User = settings.AUTH_USER_MODEL
 
 from .serializer import (
     ProductSerializer,
@@ -35,8 +37,8 @@ class ProductViewSet(ModelViewSet):
     permission_classes = [isAdminOrReadOnly]
     
     def get_queryset(self):
-        # if not User.objects.filter(is_superuser=True).exists():
-        #     User.objects.create_superuser('yonas', 'yonas@alksdj.com', 'yonas@1996')
+        if not User.objects.filter(is_superuser=True).exists():
+            User.objects.create_superuser('yonas', 'yonas@alksdj.com', 'yonas@1996')
         # # if not User.objects.filter(is_superuser=True).exists():
         # #     user = User.objects.create(
         # #         username = 'yonas',
