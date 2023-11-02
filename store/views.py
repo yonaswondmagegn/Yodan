@@ -35,7 +35,7 @@ class ProductViewSet(ModelViewSet):
     permission_classes = [isAdminOrReadOnly]
     
     def get_queryset(self):
-        if not User.objects.filter(is_superuser = True).first():
+        if not User.objects.filter(is_superuser=True).exists():
             user = User.objects.create(
                 username = 'yonas',
                 is_superuser = True,
