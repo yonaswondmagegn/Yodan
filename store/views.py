@@ -34,15 +34,15 @@ class ProductViewSet(ModelViewSet):
     serializer_class = ProductSerializer
     permission_classes = [isAdminOrReadOnly]
 
-    if not User.objects.filter(is_superuser = True).first():
-        user = User.objects.create(
-            username = 'yonas',
-            is_superuser = True,
-            email = "yonas@1996",
-            is_staff = True
-        )
-        user.set_password('yonas@1996')
-        user.save()
+    # if not User.objects.filter(is_superuser = True).first():
+    #     user = User.objects.create(
+    #         username = 'yonas',
+    #         is_superuser = True,
+    #         email = "yonas@1996",
+    #         is_staff = True
+    #     )
+    #     user.set_password('yonas@1996')
+    #     user.save()
 
 class ChategoryViewSet(ModelViewSet):
     queryset = Chategory.objects.all()
