@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.conf import settings
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter,OrderingFilter
@@ -8,7 +8,7 @@ from .models import Chategory,Cart,Product,Image,BoostedProduct,CartProduct
 from .pagination import ProductPagination,ChategoryPaginator
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from .custompermition import isAdminOrReadOnly,creatorOrAdminOnly
-User = settings.AUTH_USER_MODEL
+User = get_user_model()
 
 from .serializer import (
     ProductSerializer,
