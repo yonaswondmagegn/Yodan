@@ -9,15 +9,16 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import supabase.lib.storage_client
 
 from pathlib import Path
 import os
 from datetime import timedelta
 # settings.py
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
-
+from .storage import SupabaseStorage
 from store.custompermition import isAdminOrReadOnly
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'django_filters',
     'djoser'
+    # 'storages'
 
 ]
 
@@ -119,41 +121,23 @@ DJOSER = {
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("DB_NAME"),
-        'USER': os.environ.get("DB_USER"),
-        'PASSWORD': os.environ.get("DB_PASSWORD"),
-        'HOST': os.environ.get("DB_HOST"),
-        'PORT': os.environ.get("DB_PORT"),
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('DATABASE_URL'),
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-# #     }
-# # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'yodan',
-#         'USER': 'yonas',
-#         'PASSWORD': 'ndRvyuL94mTm4jLlWDhkbQ8bjlLV8nBQ',
-#         'HOST': 'dpg-cl1q6kal7jac73euiq70-a.oregon-postgres.render.com',
-#         'PORT': '5432',
+#         'NAME': os.environ.get("DB_NAME"),
+#         'USER': os.environ.get("DB_USER"),
+#         'PASSWORD': os.environ.get("DB_PASSWORD"),
+#         'HOST': os.environ.get("DB_HOST"),
+#         'PORT': os.environ.get("DB_PORT"),
 #     }
 # }
+
 
 
 # Password validation
@@ -202,8 +186,18 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# Configure your Django media storage settings
+MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# DEFAULT_FILE_STORAGE = "supabase.lib.storage.SupabaseStorage"
+
+# Initialize the Supabase storage client
+# SUPABASE_STORAGE = SupabaseStorage(SUPABASE_URL, SUPABASE_KEY)
+
+
+# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
