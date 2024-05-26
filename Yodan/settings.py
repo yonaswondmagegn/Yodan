@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     'django_filters',
-    'djoser'
+    'djoser',
+    'storages'
     # 'storages'
 
 ]
@@ -174,9 +175,26 @@ USE_TZ = True
 #     ],
 # }
 
+AWS_ACCESS_KEY_ID = 'AKIAVF7SV6I6VY3ADE6D'
+AWS_SECRET_ACCESS_KEY = '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'
+
+
+AWS_STORAGE_BUCKET_NAME = 'yodan'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STORAGES = {
+    'default':{
+        "BACKEND":"storages.backends.s3boto3.S3StaticStorage",
+    },
+
+    "staticfiles":{
+        "BACKEND":"storages.backends.s3boto3.S3StaticStorage",
+    }
+}
 
 STATIC_URL = 'static/'
 
