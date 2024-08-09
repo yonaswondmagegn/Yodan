@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseAdmin
 from django.utils.translation import gettext as _
-from .models import User
+from .models import User,AuthVerification
 
 
 @admin.register(User)
@@ -16,5 +16,6 @@ class UserAdmin(BaseAdmin):
             },
         ),
     )
+    list_display = ('phonenumber', 'is_staff', 'is_superuser',"is_active")
 
-from djoser.serializers import UserSerializer
+admin.site.register(AuthVerification)
